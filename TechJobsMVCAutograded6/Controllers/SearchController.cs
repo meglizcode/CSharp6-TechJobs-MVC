@@ -22,14 +22,15 @@ public class SearchController : Controller
     {
     
     List<Job> jobs = new List<Job>();
-    if (searchTerm.ToLower() == "all" || searchTerm == null) 
+    if (searchTerm.ToLower().Equals("all") || string.IsNullOrEmpty(searchTerm))
     {
         jobs = JobData.FindAll();
         ViewBag.jobs = jobs;
         ViewBag.title = "View All";
     } else {
-        jobs = JobData.FindByColumnAndValue(searchTerm,searchType);
+        jobs = JobData.FindByColumnAndValue(searchType,searchTerm);
         ViewBag.jobs = jobs;
+        ViewBag.title = " Avaliable";
     }
         ViewBag.columns = ListController.ColumnChoices;
         return View();

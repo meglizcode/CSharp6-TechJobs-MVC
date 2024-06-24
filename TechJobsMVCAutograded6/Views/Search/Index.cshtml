@@ -28,7 +28,7 @@
 
     @* TODO #4 - Loop over the search results to display all job fields. *@
 
-@if (ViewBag.jobs != null) {
+@if (ViewBag.jobs is not null && ViewBag.jobs.Count > 0) {
 @foreach (var job in ViewBag.jobs )
     {
         <table class="job-listing">

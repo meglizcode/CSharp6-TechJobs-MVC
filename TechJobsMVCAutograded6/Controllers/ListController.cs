@@ -48,6 +48,7 @@ public class ListController : Controller
     if (value == "View All"){
         jobs = JobData.FindAll();
         ViewBag.title = "View All";
+        ViewBag.jobs = jobs;
     } else {
         jobs = JobData.FindByColumnAndValue(column,value);
     ViewBag.jobs = jobs;
