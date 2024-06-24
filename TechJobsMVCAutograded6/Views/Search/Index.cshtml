@@ -28,8 +28,8 @@
 
     @* TODO #4 - Loop over the search results to display all job fields. *@
 
-@if (Viewbag.jobs != null) {
-@foreach (var job in ViewBag.jobs)
+@if (ViewBag.jobs != null) {
+@foreach (var job in ViewBag.jobs )
     {
         <table class="job-listing">
             <tr>
