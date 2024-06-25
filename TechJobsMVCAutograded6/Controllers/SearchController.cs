@@ -22,7 +22,7 @@ public class SearchController : Controller
     {
     
     List<Job> jobs = new List<Job>();
-    if (searchTerm.ToLower().Equals("all") || string.IsNullOrEmpty(searchTerm))
+    if (string.IsNullOrEmpty(searchTerm) || searchTerm.ToLower().Equals("all"))
     {
         jobs = JobData.FindAll();
         ViewBag.jobs = jobs;
@@ -33,7 +33,7 @@ public class SearchController : Controller
         ViewBag.title = " Avaliable";
     }
         ViewBag.columns = ListController.ColumnChoices;
-        return View();
+        return View("index");
     }
 }
 
